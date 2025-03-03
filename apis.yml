@@ -1,31 +1,38 @@
 aid: foodvisor
-name: Foodvisor
-description: >-
-  Analyse any food image, recognise each food items, their nutritional
-  information and their servings 
-type: Index
-position: Consumer
-access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
-created: '2025-03-01'
-modified: '2025-03-01'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/foodvisor/refs/heads/main/apis.yml
-specificationVersion: '0.19'
 apis:
   - aid: foodvisor:foodvisor
     name: Foodvisor
+    tags:
+      - API
+    humanURL: ' https://www.foodvisor.io/en/vision/'
+    properties:
+      - url: ' https://www.foodvisor.io/en/vision/'
+        type: Documentation
     description: >-
       Analyse any food image, recognise each food items, their nutritional
       information and their servings 
-    humanURL: ' https://www.foodvisor.io/en/vision/'
-    tags:
-      - API
-    properties:
-      - type: Documentation
-        url: ' https://www.foodvisor.io/en/vision/'
+name: Foodvisor
+tags:
+  - Foodvisor
+  - Health
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+created: '2025-03-01'
+modified: '2025-03-02'
+position: Consumer
+description: >-
+  Foodvisor is a mobile application that helps users track their nutrition and
+  achieve their health goals. By simply taking a picture of their meals,
+  Foodvisor uses artificial intelligence to identify the food items and provide
+  the user with valuable information such as calorie counts, macronutrient
+  breakdown, and overall nutritional value. Users can set personal goals,
+  receive personalized recommendations, and track their progress over time. With
+  Foodvisor, users can make more informed food choices, improve their eating
+  habits, and ultimately lead a healthier lifestyle.
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
+specificationVersion: '0.19'
