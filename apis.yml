@@ -41,6 +41,8 @@ apis:
       - type: ContactSales
         url: https://www.foodvisor.io/en/vision/#contact
 common:
+  - type: DomainSecurity
+    url: security/foodvisor-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/Foodvisor
   - type: LinkedIn
