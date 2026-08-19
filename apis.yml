@@ -33,7 +33,7 @@ tags:
   - Mobile
 url: >-
   https://raw.githubusercontent.com/api-evangelist/foodvisor/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: foodvisor:vision
     name: Foodvisor Vision API
