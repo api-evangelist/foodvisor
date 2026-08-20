@@ -25,6 +25,13 @@ created: '2025-03-01'
 modified: '2026-04-28'
 position: Consumer
 tags:
+  - Artificial Intelligence
+  - Computer-Vision
+  - Food
+  - Health
+  - Nutrition
+  - Mobile
+tags_raw:
   - AI
   - Computer Vision
   - Food
@@ -38,6 +45,10 @@ apis:
   - aid: foodvisor:vision
     name: Foodvisor Vision API
     tags:
+      - Artificial Intelligence
+      - Food Recognition
+      - Nutrition
+    tags_raw:
       - AI
       - Food Recognition
       - Nutrition
