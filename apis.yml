@@ -34,7 +34,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/foodvisor.
 access: 3rd-Party
 created: '2025-03-01'
 modified: '2026-04-28'
-position: Consumer
+position: Consuming
 tags:
   - Artificial Intelligence
   - Computer-Vision
