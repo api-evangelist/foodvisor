@@ -1,0 +1,34 @@
+specification: API Evangelist MCP Server Profile
+specificationVersion: '0.1'
+provider: Foodvisor
+providerId: foodvisor
+generated: '2026-09-10'
+method: searched
+source: >-
+  Search for a Foodvisor-published Model Context Protocol server across foodvisor.io, the
+  github.com/Foodvisor organization, npm, PyPI and the public MCP directories, 2026-09-10.
+status: none
+deployment:
+  mode: none
+  auth: unknown
+  verified: searched
+note: >-
+  Foodvisor ships NO MCP server, hosted or local. There is also nothing to derive a
+  candidate tool list from: the company publishes no OpenAPI, no GraphQL SDL and no public
+  API reference (see lifecycle/foodvisor-lifecycle.yml). No endpoint has been invented and
+  no MCPServer pointer is wired into apis.yml.
+third_party:
+  - name: foodvisor-mcp
+    repository: https://github.com/cldt-fr/foodvisor-mcp
+    listing: https://glama.ai/mcp/servers/cldt-fr/foodvisor-mcp
+    official: false
+    note: >-
+      A community project by an unaffiliated author. Its own README states the project is
+      "unofficial" and that it works by reverse-engineering requests to Foodvisor's PRIVATE
+      mobile API, and that it is "not endorsed by Foodvisor". It is recorded here only so a
+      later run does not mistake it for a first-party surface. It confers no agent-readiness
+      credit on Foodvisor, is not wired as a pointer, and API Evangelist neither probed nor
+      exercised the private endpoints it calls.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

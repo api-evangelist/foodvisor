@@ -4,142 +4,42 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Foodvisor
 providerId: foodvisor
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+modified: '2026-09-10'
+generated: '2026-09-10'
+method: searched
+source: >-
+  https://www.foodvisor.io/ and its Vue Router table + i18n string bundle, plus a probe of
+  the retired https://www.foodvisor.io/en/vision/ product page. Searched 2026-09-10.
+plan_count: 0
 tags:
-  - AI
-  - Computer Vision
+  - Artificial Intelligence
+  - Computer-Vision
   - Food
   - Health
   - Nutrition
   - Mobile
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
-plans:
-  - id: foodvisor-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Foodvisor API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Foodvisor Vision API
-  - id: foodvisor-pro
-    name: Professional
-    type: paid
-    description: Production tier for Foodvisor. Provides higher quotas, priority support, and access to
-      the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Foodvisor Vision API
-  - id: foodvisor-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Foodvisor. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
-    entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Foodvisor Vision API
+description: >-
+  Foodvisor publishes NO API plans or API pricing. This file replaces a 2026-05-04
+  scaffold that carried invented Free / Professional / Enterprise tiers with fabricated
+  quotas (1,000 and 100,000 requests/month) and rate limits; none of those numbers were
+  ever published by Foodvisor and they have been removed rather than corrected.
+plans: []
+note: >-
+  HONEST ZERO. There is no API pricing page to read, because there is no longer a public
+  API product: /en/vision/ returns 404 and vision.foodvisor.io is NXDOMAIN (see
+  lifecycle/foodvisor-lifecycle.yml). Foodvisor does sell a consumer subscription
+  ("Foodvisor Premium") through https://www.foodvisor.io/en/premium/, but that page is a
+  client-rendered SPA whose translation bundle contains no hardcoded prices — amounts are
+  fetched at runtime per market — and a consumer app subscription is not an API plan, so it
+  is deliberately not recorded here as one. No Pricing pointer is wired into apis.yml.
+evidence:
+  - url: https://www.foodvisor.io/en/vision/
+    status: 404
+    checked: '2026-09-10'
+  - url: https://www.foodvisor.io/en/premium/
+    status: 200
+    checked: '2026-09-10'
+    note: Live SPA route; no published price strings in the served HTML or the i18n bundle.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

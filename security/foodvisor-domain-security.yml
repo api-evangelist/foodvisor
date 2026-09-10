@@ -1,4 +1,4 @@
-generated: '2026-07-11'
+generated: '2026-09-10'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -15,3 +15,11 @@ domains:
   spf: true
   dmarc: true
   dmarc_policy: reject
+  spf_record: v=spf1 include:spf.protection.outlook.com include:_spf.google.com include:mail.zendesk.com
+    ~all
+  note: 'SPF corrected by hand 2026-09-10 after verification with `dig TXT foodvisor.io`. probe-domain-security.py
+    recorded spf: false on two consecutive runs; its dig call uses +time=2 +tries=1, which intermittently
+    times out against this domain''s eight-record TXT set and silently yields a false negative. The record
+    is present.'
+note: 'method: probed, with one hand-verified correction — see domains[].note for foodvisor.io. No value
+  here was assumed; each was read from a live DNS or TLS response.'

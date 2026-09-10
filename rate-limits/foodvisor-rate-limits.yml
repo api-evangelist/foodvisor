@@ -4,90 +4,47 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Foodvisor
 providerId: foodvisor
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+modified: '2026-09-10'
+generated: '2026-09-10'
+method: searched
+source: >-
+  Search of every public Foodvisor surface still reachable on 2026-09-10 — www.foodvisor.io,
+  the landing SPA route table and i18n bundle, api.foodvisor.io, and the retired
+  /en/vision/ product page.
+limit_count: 0
 tags:
-  - AI
-  - Computer Vision
+  - Artificial Intelligence
+  - Computer-Vision
   - Food
   - Health
   - Nutrition
   - Mobile
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Foodvisor API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Foodvisor Vision API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Foodvisor Vision API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Foodvisor Vision API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Foodvisor Vision API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Foodvisor Vision API
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+description: >-
+  Foodvisor publishes NO rate limits, quotas or throttling documentation. This file replaces
+  a 2026-05-04 scaffold that asserted per-tier limits (10/100/1000 requests per minute,
+  1,000 and 100,000 requests per month) and a full X-RateLimit-* header set, none of which
+  Foodvisor ever published. Those invented values have been removed.
+headers: {}
+responseCodes: {}
+limits: []
+policies: []
+note: >-
+  HONEST ZERO. No rate-limit documentation exists because the developer program itself is
+  gone (see lifecycle/foodvisor-lifecycle.yml). Nothing was observed live either: the only
+  reachable API host, api.foodvisor.io, returns an empty 200 on / and a branded 404 on every
+  other anonymous path, emitting no RateLimit-*, X-RateLimit-* or Retry-After header. The
+  private mobile-app backend behind that host is not a published API and was not probed.
+evidence:
+  - url: https://api.foodvisor.io/
+    status: 200
+    checked: '2026-09-10'
+    note: >-
+      Empty body, no rate-limit response headers of any kind
+      (observed headers: allow, vary, x-frame-options, x-content-type-options, referrer-policy).
+  - url: https://www.foodvisor.io/en/vision/
+    status: 404
+    checked: '2026-09-10'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

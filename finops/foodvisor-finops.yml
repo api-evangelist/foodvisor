@@ -3,134 +3,41 @@ specificationVersion: '1.0'
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
-  dataSpec: FOCUS
-  dataSpecVersion: '1.3'
-  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Foodvisor
 providerId: foodvisor
-publisherName: Foodvisor
-serviceCategory: API
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - AI
-  - Computer Vision
-  - Food
-  - Health
-  - Nutrition
-  - Mobile
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the Foodvisor API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
-billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
-  billingCurrency: USD
-  chargeCategories:
-    - Usage
-    - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
-focusColumns:
-  ServiceName: Foodvisor
-  ServiceCategory: Developer Tools / API
-  ProviderName: Foodvisor
-  PublisherName: Foodvisor
-  InvoiceIssuerName: Foodvisor
-  PricingCategory: Usage-Based
-  PricingUnit: request
-  BillingCurrency: USD
-  ChargeCategory: Usage
-meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Foodvisor Vision API
-    baseURL: ''
-    tags:
-      - AI
-      - Food Recognition
-      - Nutrition
-    serviceName: Foodvisor Vision API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+modified: '2026-09-10'
+generated: '2026-09-10'
+method: searched
+source: >-
+  Search of every reachable Foodvisor public surface on 2026-09-10 for a published
+  billing model, metered unit, invoice unit or usage-cost surface.
+applicable: false
+status: not-applicable
+description: >-
+  NOT APPLICABLE. Foodvisor sells no API and publishes no API billing model, so there is
+  no cost, meter or unit-economics surface to align to FOCUS. This file replaces a
+  2026-05-04 scaffold that asserted a USD usage-based pricing category, a per-request
+  pricing unit and three invented meters (api_requests, data_egress, compute_seconds);
+  Foodvisor published none of that and the invented values have been removed rather than
+  carried forward.
+billingModel: {}
+focusColumns: {}
+meters: []
+unitEconomics: []
+note: >-
+  The company's only published commercial surface is a consumer app subscription
+  (Foodvisor Premium) whose prices are fetched at runtime and are not in the served HTML.
+  A consumer subscription is not an API cost surface. See lifecycle/foodvisor-lifecycle.yml
+  for the retirement of the Vision API and plans/foodvisor-plans-pricing.yml for the
+  plan-level zero. No FinOps pointer is wired into apis.yml.
+evidence:
+  - url: https://www.foodvisor.io/en/vision/
+    status: 404
+    checked: '2026-09-10'
+  - url: https://www.foodvisor.io/en/premium/
+    status: 200
+    checked: '2026-09-10'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

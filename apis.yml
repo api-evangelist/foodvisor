@@ -1,11 +1,16 @@
 aid: foodvisor
 name: Foodvisor
 description: >-
-  Foodvisor is a mobile nutrition platform whose Vision API uses computer
-  vision and AI to identify food items from photographs and return
-  nutritional information including calories, macronutrients, and serving
-  estimates. The Vision API is offered to enterprise developers under a
-  commercial agreement.
+  Foodvisor is a French mobile nutrition platform whose app identifies food items from a
+  photograph using computer vision and returns nutritional information — calories,
+  macronutrients and portion estimates. Between 2023 and 2025 Foodvisor also sold that
+  capability to developers as the Foodvisor Vision API, a commercial image-recognition
+  and nutrition-analysis service documented at vision.foodvisor.io. That developer
+  product has since been withdrawn: the Vision product page now returns HTTP 404, the
+  documentation host no longer resolves in DNS, and the live site carries no API,
+  developer or enterprise content. Foodvisor today publishes no machine-readable
+  contract, no SDK, no MCP server and no /.well-known document, and operates as a
+  consumer subscription app.
 type: Index
 deliveryModel:
   model: unknown
@@ -19,22 +24,30 @@ deliveryModel:
   generated: '2026-08-28'
   method: derived
 accessModel:
-  pricing: freemium
+  pricing: unknown
   onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Freemium
+  label: Unknown — no API is offered
   confidence: medium
   source:
   - plans
-  generated: '2026-07-22'
-  method: derived
+  - lifecycle
+  generated: '2026-09-10'
+  method: probed
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/foodvisor.png
 access: 3rd-Party
 created: '2025-03-01'
-modified: '2026-04-28'
+modified: '2026-09-10'
 position: Consuming
+x-api-program:
+  status: retired
+  note: >-
+    The Foodvisor Vision API was announced in October 2023 and withdrawn without a public
+    sunset notice between 2025-11-08 (last archived HTTP 200 for /en/vision/) and
+    2026-01-08 (first archived HTTP 404). Evidence in lifecycle/foodvisor-lifecycle.yml.
+    The company itself is active; only the developer program is gone.
 tags:
   - Artificial Intelligence
   - Computer-Vision
@@ -54,7 +67,7 @@ url: >-
 specificationVersion: '0.23'
 apis:
   - aid: foodvisor:vision
-    name: Foodvisor Vision API
+    name: Foodvisor Vision API (retired)
     tags:
       - Artificial Intelligence
       - Food Recognition
@@ -63,30 +76,74 @@ apis:
       - AI
       - Food Recognition
       - Nutrition
-    humanURL: https://www.foodvisor.io/en/vision/
+    humanURL: https://www.foodvisor.io/
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/foodvisor.png
+    x-status: retired
+    x-retired-note: >-
+      The Foodvisor Vision API performed food detection and nutritional analysis from
+      images under a commercial agreement. Its product page
+      (https://www.foodvisor.io/en/vision/) returns HTTP 404 and its documentation host
+      (vision.foodvisor.io) is NXDOMAIN from three independent resolvers as of
+      2026-09-10; the live marketing SPA declares no /vision/ route and its 78KB
+      translation bundle contains no "vision", "developer", "docs", "enterprise" or
+      "business" string. No baseURL is recorded because Foodvisor never published one to
+      a public URL that survives — the endpoint was shared with customers under contract
+      — and API Evangelist will not infer one from the mobile app or from third-party
+      wrappers. humanURL points at the company site because the API's own page is gone.
     description: >-
-      The Foodvisor Vision API performs food detection and nutritional
-      analysis from images. It is provisioned under a commercial agreement;
-      endpoint and authentication details are shared with customers and no
-      public OpenAPI specification is published.
+      RETIRED. A commercial computer-vision API that detected food items in a photograph
+      and returned nutritional facts including calories and macronutrients. Endpoint and
+      authentication details were issued to customers under a commercial agreement and no
+      public OpenAPI specification was ever published. The product page and the
+      documentation host have both been taken down; see the lifecycle artifact for the
+      dated evidence.
     properties:
-      - type: Documentation
-        url: https://www.foodvisor.io/en/vision/
-      - type: ContactSales
-        url: https://www.foodvisor.io/en/vision/#contact
+      - type: Lifecycle
+        url: lifecycle/foodvisor-lifecycle.yml
 common:
-  - type: DomainSecurity
-    url: security/foodvisor-domain-security.yml
+  - type: Website
+    url: https://www.foodvisor.io/
   - type: GitHubOrganization
     url: https://github.com/Foodvisor
   - type: LinkedIn
     url: https://www.linkedin.com/company/foodvisor
-  - type: Website
-    url: https://www.foodvisor.io/
-  - type: Documentation
-    url: https://www.foodvisor.io/en/vision/
-  - type: ContactSales
-    url: https://www.foodvisor.io/en/vision/#contact
+  - type: TermsOfService
+    url: https://www.foodvisor.io/en/terms-of-service/
+  - type: PrivacyPolicy
+    url: https://www.foodvisor.io/en/privacy-policy/
+  - type: SignUp
+    url: https://www.foodvisor.io/en/signup/
+  - type: DomainSecurity
+    url: security/foodvisor-domain-security.yml
+  - type: Lifecycle
+    url: lifecycle/foodvisor-lifecycle.yml
+  - type: LLMsTxt
+    url: llms/foodvisor-llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-10'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Foodvisor retired its Vision API: the product page /en/vision/ now returns HTTP 404,
+    the documentation host vision.foodvisor.io is NXDOMAIN from three resolvers, and the
+    live marketing SPA's router declares no /vision/, /api/ or /developers/ route at all —
+    the company ships only the consumer app now.
+  evidence:
+    - url: https://www.foodvisor.io/en/vision/
+      status: 404
+    - url: https://vision.foodvisor.io/docs/
+      status: 0
+    - url: https://api.foodvisor.io/openapi.json
+      status: 404
+    - url: https://www.foodvisor.io/.well-known/api-catalog
+      status: 404
+    - url: https://www.foodvisor.io/llms.txt
+      status: 404
+  checked: '2026-09-10'

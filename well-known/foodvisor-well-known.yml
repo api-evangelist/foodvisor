@@ -1,0 +1,106 @@
+specification: API Evangelist Well-Known Index
+specificationVersion: '0.1'
+provider: Foodvisor
+providerId: foodvisor
+generated: '2026-09-10'
+method: probed
+source: >-
+  Direct anonymous HTTPS probes of /.well-known/* on every host this record knows —
+  the registrable domain (foodvisor.io), www, the API host (api.foodvisor.io) and the
+  asset host (cdn.foodvisor.io). Probed 2026-09-10 with a browser User-Agent.
+note: >-
+  ABSENCE, RECORDED. Every path returned 404 on the three application hosts and 403
+  (S3/CloudFront access denied) on the asset CDN. Foodvisor publishes no security.txt,
+  no OpenID/OAuth discovery document, no api-catalog, no ai-plugin manifest and no A2A
+  agent card on any host. No WellKnown or SecurityTxt pointer is wired into apis.yml,
+  because this file documents an absence and a pointer would assert a presence.
+  The former developer host vision.foodvisor.io could not be probed at all — it is
+  NXDOMAIN as of this run (see lifecycle/foodvisor-lifecycle.yml).
+hosts:
+  - host: www.foodvisor.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: foodvisor.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: api.foodvisor.io
+    note: >-
+      Live Django/CloudFront application host that answers 200 on / with an empty body
+      and returns a real branded 404 page for unknown paths, so these 404s are genuine
+      routing misses rather than a catch-all.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: cdn.foodvisor.io
+    note: S3/CloudFront asset origin; answers 403 AccessDenied (application/xml) for all paths not present.
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+unreachable_hosts:
+  - host: vision.foodvisor.io
+    status: 0
+    error: NXDOMAIN
+    note: >-
+      Former Foodvisor Vision API documentation host. Returns NXDOMAIN from the local
+      resolver, 8.8.8.8 and 1.1.1.1 as of 2026-09-10. No /.well-known probe was possible.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

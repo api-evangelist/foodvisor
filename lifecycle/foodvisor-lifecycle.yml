@@ -1,0 +1,101 @@
+specification: API Commons Lifecycle
+specificationVersion: '0.1'
+provider: Foodvisor
+providerId: foodvisor
+generated: '2026-09-10'
+method: probed
+source: >-
+  Live DNS and HTTPS probes of foodvisor.io hosts plus the Foodvisor landing SPA's own
+  Vue Router table and i18n string bundle, cross-checked against Internet Archive CDX
+  records for www.foodvisor.io/en/vision/ and vision.foodvisor.io. Probed 2026-09-10.
+summary: >-
+  The Foodvisor Vision API — the company's public developer product, announced in October
+  2023 — has been RETIRED from Foodvisor's public surface. Its product page (
+  https://www.foodvisor.io/en/vision/ ) now returns HTTP 404, its documentation host (
+  vision.foodvisor.io ) no longer resolves in DNS, and the current marketing SPA contains
+  no route and no translated string mentioning the API, Vision, developers, docs, business
+  or enterprise. Foodvisor continues to operate as a consumer nutrition app. No sunset
+  notice, deprecation policy, migration guide or replacement endpoint was published anywhere
+  API Evangelist could find; the surface was withdrawn silently.
+versioning:
+  scheme: unknown
+  note: >-
+    No public versioning policy was ever reachable. The former docs host was a
+    JavaScript-rendered SPA whose archived snapshots contain only an empty shell, so no
+    version scheme can be honestly asserted.
+deprecation_policy:
+  published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  note: >-
+    RFC 8594 Sunset/Deprecation header support cannot be observed: there is no reachable
+    API endpoint left to probe anonymously. No written deprecation or sunset policy is
+    published on foodvisor.io.
+sla:
+  published: false
+status_page:
+  published: false
+  note: >-
+    No status.foodvisor.io, no statuspage.io/instatus/betteruptime tenant and no status
+    link on the live site. No StatusPage pointer is wired into apis.yml.
+retirements:
+  - surface: Foodvisor Vision API — public product page
+    url: https://www.foodvisor.io/en/vision/
+    status_observed: 404
+    last_seen_live: '2025-11-08'
+    first_seen_gone: '2026-01-08'
+    evidence:
+      - type: live-probe
+        url: https://www.foodvisor.io/en/vision/
+        status: 404
+        checked: '2026-09-10'
+      - type: archive-cdx
+        url: http://web.archive.org/cdx/search/cdx?url=www.foodvisor.io/en/vision*&output=json&fl=timestamp,original,statuscode
+        note: >-
+          CDX shows statuscode 200 for snapshots through 20251108033940 and statuscode 404
+          from snapshot 20260108135612 onward.
+      - type: spa-route-table
+        url: https://cdn.foodvisor.io/landing/static/prod/vite/assets/app-DAv0emzk.js
+        note: >-
+          The live Vue Router table declares 23 routes (/:locale/premium/, /:locale/guides/,
+          /:locale/press/, /:locale/login/, /:locale/signup/, /:locale/privacy-policy/,
+          /:locale/terms-of-service/ and others). There is no /vision/, /api/ or /developers/
+          route, which is why the server answers a hard 404 rather than a soft SPA shell.
+  - surface: Foodvisor Vision API — developer documentation and quickstart host
+    url: https://vision.foodvisor.io/docs/
+    status_observed: 0
+    resolution: NXDOMAIN
+    last_seen_live: '2024-07-08'
+    evidence:
+      - type: dns
+        query: vision.foodvisor.io
+        result: NXDOMAIN
+        resolvers:
+          - system
+          - 8.8.8.8
+          - 1.1.1.1
+        checked: '2026-09-10'
+      - type: archive-cdx
+        url: http://web.archive.org/cdx/search/cdx?url=vision.foodvisor.io*&output=json
+        note: >-
+          Only three captures exist — / (302, 20240708002611), /docs/ (200, 20240707215912)
+          and /platform/quickstart/ (200, 20240707203340). All three archived bodies are
+          1,659-byte JavaScript shells containing the single string "Foodvisor Vision", so
+          even the archive holds no readable reference. Nothing was recoverable and nothing
+          was reconstructed.
+  - surface: Foodvisor Vision API — i18n content
+    evidence:
+      - type: string-bundle
+        url: https://cdn.foodvisor.io/landing/static/prod/vite/assets/strings-B47lV4gO.js
+        note: >-
+          78,840-byte translation bundle for the live site. Zero occurrences of "vision",
+          "developer", "docs", "enterprise" or "business", and no "api." key namespace.
+deprecated_operations: []
+note: >-
+  NO CONTRACT WAS DERIVED OR RECONSTRUCTED. This file records only what was probed. The
+  Vision API's endpoint, authentication and payload shape were never published to a public
+  URL that survives, and API Evangelist has not inferred them from the archive, from the
+  mobile app, or from third-party wrappers.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

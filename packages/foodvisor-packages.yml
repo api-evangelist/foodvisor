@@ -1,0 +1,46 @@
+specification: API Commons Packages
+specificationVersion: '0.1'
+provider: Foodvisor
+providerId: foodvisor
+generated: '2026-09-10'
+method: searched
+source: >-
+  Unauthenticated registry searches on 2026-09-10 — registry.npmjs.org search API,
+  pypi.org/pypi/<pkg>/json, rubygems.org search API, crates.io API, packagist.org search
+  API — plus a full listing of the github.com/Foodvisor organization via the GitHub API.
+package_count: 0
+official_package_count: 0
+packages: []
+note: >-
+  HONEST ZERO. Foodvisor publishes no client libraries anywhere. npm search for "foodvisor"
+  returns zero packages; foodvisor / foodvisor-api / foodvisor-sdk all 404 on PyPI;
+  RubyGems, crates.io and Packagist all return empty result sets. The github.com/Foodvisor
+  organization is live and actively pushed to (11 public repos, most recent 2026-08-11) but
+  every repo is internal tooling — Bitrise CI steps for the iOS app, an APNs library fork, an
+  iOS debug browser, a django-elasticsearch-dsl fork, a pretrained-models.pytorch fork and
+  two hiring assignments. There is no SDK, no CLI and no API client among them. No SDKs or
+  Packages pointer is wired into apis.yml, because this file records an absence.
+registries_searched:
+  - registry: npm
+    query: https://registry.npmjs.org/-/v1/search?text=foodvisor
+    results: 0
+  - registry: pypi
+    query: https://pypi.org/pypi/foodvisor/json
+    results: 0
+    note: foodvisor, foodvisor-api and foodvisor-sdk each returned HTTP 404.
+  - registry: rubygems
+    query: https://rubygems.org/api/v1/search.json?query=foodvisor
+    results: 0
+  - registry: crates.io
+    query: https://crates.io/api/v1/crates?q=foodvisor
+    results: 0
+  - registry: packagist
+    query: https://packagist.org/search.json?q=foodvisor
+    results: 0
+  - registry: github
+    query: https://api.github.com/orgs/Foodvisor/repos
+    results: 11
+    note: 11 repos, zero SDKs or API clients. Enumerated and classified by hand.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
