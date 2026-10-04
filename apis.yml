@@ -50,7 +50,7 @@ x-api-program:
     The company itself is active; only the developer program is gone.
 tags:
   - Artificial Intelligence
-  - Computer-Vision
+  - Computer Vision
   - Food
   - Health
   - Nutrition
@@ -62,6 +62,7 @@ tags_raw:
   - Health
   - Nutrition
   - Mobile
+  - Computer-Vision
 url: >-
   https://raw.githubusercontent.com/api-evangelist/foodvisor/refs/heads/main/apis.yml
 specificationVersion: '0.23'
