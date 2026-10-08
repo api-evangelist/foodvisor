@@ -102,6 +102,12 @@ apis:
       - type: Lifecycle
         url: lifecycle/foodvisor-lifecycle.yml
 common:
+  - type: Plans
+    url: plans/foodvisor-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/foodvisor-rate-limits.yml
+  - type: FinOps
+    url: finops/foodvisor-finops.yml
   - type: Website
     url: https://www.foodvisor.io/
   - type: GitHubOrganization
