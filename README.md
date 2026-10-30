@@ -1,4 +1,4 @@
-# Foodvisor (foodvisor)
+# Foodvisor
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,71 +64,105 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Foodvisor is a French mobile nutrition platform whose app identifies food items from a
-photograph using computer vision and returns calories, macronutrients and portion
-estimates. Between 2023 and 2025 Foodvisor also sold that capability to developers as the
-**Foodvisor Vision API**. That developer product has been withdrawn.
+Foodvisor is a French mobile nutrition platform whose app identifies food items from a photograph using computer vision and returns nutritional information — calories, macronutrients and portion estimates. Between 2023 and 2025 Foodvisor also sold that capability to developers as the Foodvisor Vision API, a commercial image-recognition and nutrition-analysis service documented at vision.foodvisor.io. That developer product has since been withdrawn: the Vision product page now returns HTTP 404, the documentation host no longer resolves in DNS, and the live site carries no API, developer or enterprise content. Foodvisor today publishes no machine-readable contract, no SDK, no MCP server and no /.well-known document, and operates as a consumer subscription app.
 
-**APIs.json:** [apis.yml](https://raw.githubusercontent.com/api-evangelist/foodvisor/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Computer Vision · Food · Health · Nutrition · Mobile
 
-## API program status: retired
+## Foodvisor on APIs.io
 
-As measured on **2026-09-10**:
+Everything profiled for Foodvisor is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/foodvisor/](https://apis.io/providers/foodvisor/)** — or go straight to one of the APIs or properties below.
 
-| Surface | Result |
-| --- | --- |
-| `https://www.foodvisor.io/en/vision/` (Vision API product page) | **HTTP 404** |
-| `vision.foodvisor.io` (documentation host) | **NXDOMAIN** from three independent resolvers |
-| Live site route table | no `/vision/`, `/api/` or `/developers/` route among 23 declared routes |
-| Site translation bundle (78 KB) | zero occurrences of *vision*, *developer*, *docs*, *enterprise*, *business* |
-| OpenAPI / Swagger / GraphQL / AsyncAPI / WSDL / Protobuf | none published on any host |
-| `/.well-known/*` (4 hosts x 8 paths) | every path 404 or 403 |
-| `llms.txt` | 404 |
-| MCP server, A2A agent card | none |
-| Client SDKs (npm, PyPI, RubyGems, crates.io, Packagist, GitHub org) | none |
+### APIs (1)
 
-Internet Archive captures put the withdrawal between **2025-11-08** (last HTTP 200) and
-**2026-01-08** (first HTTP 404). No sunset notice, deprecation policy, migration guide or
-replacement endpoint was published. The dated evidence is in
-[`lifecycle/foodvisor-lifecycle.yml`](lifecycle/foodvisor-lifecycle.yml).
+- [Foodvisor Vision API (retired)](https://apis.io/apis/foodvisor/vision/) — RETIRED. A commercial computer-vision API that detected food items in a photograph and returned nutritional facts including calories and macronutrients.…
 
-The company itself is active — only the developer program is gone.
+### Published properties
 
-## Scope
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Type:** Index
-- **Position:** Consuming
-- **Access:** 3rd-Party
+#### Security (1)
 
-## Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-Artificial Intelligence, Computer-Vision, Food, Health, Nutrition, Mobile
+- [Foodvisor Domain Security](https://apis.io/security/foodvisor/foodvisor-domain-security/)
 
-## APIs
+#### Plans and pricing (1)
 
-### Foodvisor Vision API (retired)
+Published plans, tiers and prices.
 
-A commercial computer-vision API that detected food items in a photograph and returned
-nutritional facts. Endpoint and authentication details were issued to customers under a
-commercial agreement and no public OpenAPI specification was ever published. No `baseURL`
-is recorded, because Foodvisor never published one to a public URL that survives and this
-profile does not infer one from the mobile app or from third-party wrappers.
+- [Foodvisor Plans Pricing](https://apis.io/plans/foodvisor/foodvisor-plans-pricing/)
 
-## Common Properties
+#### Rate limits (1)
+
+Published request limits.
+
+- [Foodvisor Rate Limits](https://apis.io/rate-limits/foodvisor/foodvisor-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Foodvisor Finops](https://apis.io/finops/foodvisor/foodvisor-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.foodvisor.io/)
-- [GitHub Organization](https://github.com/Foodvisor)
-- [LinkedIn](https://www.linkedin.com/company/foodvisor)
-- [Terms of Service](https://www.foodvisor.io/en/terms-of-service/)
-- [Privacy Policy](https://www.foodvisor.io/en/privacy-policy/)
-- [Sign Up](https://www.foodvisor.io/en/signup/)
+- [Sign up](https://www.foodvisor.io/en/signup/)
+- [Terms of service](https://www.foodvisor.io/en/terms-of-service/)
+- [Privacy policy](https://www.foodvisor.io/en/privacy-policy/)
+- [GitHub](https://github.com/Foodvisor)
 
-Every link above returned HTTP 200 on 2026-09-10. The previous `Documentation` and
-`Contact Sales` pointers both resolved to `https://www.foodvisor.io/en/vision/`, which now
-returns 404; they have been removed rather than left standing as claims Foodvisor no longer
-supports.
+## API Evangelist rating
 
-## Maintainers
+**Kin Score 11.3** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-- **FN:** Kin Lane
-- **Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 27.6 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.3** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/foodvisor/](https://apis.io/providers/foodvisor/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Foodvisor: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/foodvisor/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
